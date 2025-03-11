@@ -7,7 +7,7 @@ using Domain.Entities;
 
 namespace Domain.Repository
 {
-    public interface IMunicipioRepository : IRepository<MunicipioEntity>
+    public interface IMuninicipioRepository : IRepository<MunicipioEntity>
     {
         Task<MunicipioEntity>GetCompleteById(Guid id);
 

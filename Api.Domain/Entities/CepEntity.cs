@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Api.Domain.Entities;
 
 namespace Domain.Entities
 {
-    public class CepEntity
+    public class CepEntity : BaseEntity
     {
         [Key]  // Marcar como chave primária
         public Guid Id { get; set; }  // Altere o tipo de 'object' para 'Guid'
