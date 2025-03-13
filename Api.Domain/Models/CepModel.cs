@@ -1,46 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 
-namespace Domain.Models
+namespace Api.Domain.Models
 {
-    public class CepModel
+    public class CepModel : BaseModel
     {
+        private string _cep;
+        public string Cep
+        {
+            get { return _cep; }
+            set { _cep = value; }
+        }
 
-		private string _cep;
+        private string _logradouro;
+        public string Logradouro
+        {
+            get { return _logradouro; }
+            set { _logradouro = value; }
+        }
 
-		public string Cep
-		{
-			get { return _cep; }
-			set { _cep = value; }
-		}
+        private string _numero;
+        public string Numero
+        {
+            get { return _numero; }
+            set
+            {
+                _numero = string.IsNullOrEmpty(value) ? "S/N" : value;
+            }
+        }
 
-
-		private string _logradouro;
-
-		public string Logradouro
-		{
-			get { return _logradouro; }
-			set { _logradouro = value; }
-		}
-
-		private string _numero;
-
-		public string Numero
-		{
-			get { return _numero; }
-			set { _numero = string.IsNullOrEmpty(value) ? "s/n" : value;
-			}
-		}
-
-		private Guid _municipioId;
-
-		public Guid MunicipioId
-		{
-			get { return _municipioId; }
-			set { _municipioId = value; }
-		}
+        private Guid _municipioId;
+        public Guid MunicipioId
+        {
+            get { return _municipioId; }
+            set { _municipioId = value; }
+        }
 
 
-	}
+    }
 }

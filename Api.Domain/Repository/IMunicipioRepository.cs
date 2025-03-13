@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 using System.Threading.Tasks;
+using Api.Domain.Entities;
 using Api.Domain.Interfaces;
-using Domain.Entities;
 
-namespace Domain.Repository
+namespace Api.Domain.Repository
 {
-    public interface IMuninicipioRepository : IRepository<MunicipioEntity>
+    public interface IMunicipioRepository : IRepository<MunicipioEntity>
     {
-        Task<MunicipioEntity>GetCompleteById(Guid id);
-
+        Task<MunicipioEntity> GetCompleteById(Guid id);
         Task<MunicipioEntity> GetCompleteByIBGE(int codIBGE);
-
     }
 }

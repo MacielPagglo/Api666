@@ -8,10 +8,5 @@ namespace Api.Domain.Dtos.User
         public string Name { get; set; }
         public string Email { get; set; }
         public DateTime UpdateAt { get; set; }
-
-        public static explicit operator bool(UserDtoUpdateResult v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

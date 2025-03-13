@@ -6,6 +6,7 @@ using Api.Domain.Interfaces;
 using Api.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+
 namespace Api.CrossCutting.DependencyInjection
 {
     public class ConfigureRepository
@@ -15,11 +16,7 @@ namespace Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserImplementation>();
 
-            // Obter a variável de ambiente e verificar se ela não é nula
-            var databaseType = Environment.GetEnvironmentVariable("DATABASE");
-
-            // Usar uma expressão condicional segura para a verificação do tipo de banco de dados
-            if (!string.IsNullOrEmpty(databaseType) && string.Equals(databaseType, "SQLSERVER", StringComparison.OrdinalIgnoreCase))
+            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
             {
                 serviceCollection.AddDbContext<MyContext>(
                     options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION"))

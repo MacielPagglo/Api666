@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 
-namespace Domain.Dtos.Uf
+namespace Api.Domain.Dtos.Uf
 {
     public class UfDto
     {
-        public Guid  Id { get; set; }
+        public Guid Id { get; set; }
         public string Sigla { get; set; }
-        public string Nome { get; set; } 
+        public string Nome { get; set; }
     }
 }
+
 
 

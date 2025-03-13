@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Api.Domain.Entities;
 
-namespace Domain.Entities
+namespace Api.Domain.Entities
 {
     public class CepEntity : BaseEntity
     {
-        [Key]  // Marcar como chave primária
-        public Guid Id { get; set; }  // Altere o tipo de 'object' para 'Guid'
-
         [Required]
         [MaxLength(10)]
         public string Cep { get; set; }
@@ -26,6 +20,5 @@ namespace Domain.Entities
         public Guid MunicipioId { get; set; }
 
         public MunicipioEntity Municipio { get; set; }
-        public object Uf { get; set; }  // Se 'Uf' não for chave estrangeira ou relação, pode ser mantido
     }
 }

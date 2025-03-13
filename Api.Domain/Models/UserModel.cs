@@ -1,13 +1,9 @@
 using System;
-using Domain.Models;
 
 namespace Api.Domain.Models
 {
     public class UserModel : BaseModel
     {
-        private Guid _id;
-
-
         private string _name;
         public string Name
         {
@@ -22,7 +18,5 @@ namespace Api.Domain.Models
             set { _email = value; }
         }
 
-
-  
     }
 }

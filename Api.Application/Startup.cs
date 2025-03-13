@@ -156,9 +156,7 @@ namespace application
                 endpoints.MapControllers();
             });
 
-            // Verificação segura da variável de ambiente MIGRATION
-            var migration = Environment.GetEnvironmentVariable("MIGRATION");
-            if (!string.IsNullOrEmpty(migration) && string.Equals(migration, "APLICAR", StringComparison.OrdinalIgnoreCase))
+            if (Environment.GetEnvironmentVariable("MIGRATION").ToLower() == "APLICAR".ToLower())
             {
                 using (var service = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
                                                             .CreateScope())

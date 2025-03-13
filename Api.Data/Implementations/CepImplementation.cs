@@ -1,56 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Api.Data.Context;
 using Api.Data.Repository;
-using Api.Domain.Interfaces;
-using Domain.Entities;
-using Domain.Repository;
+using Api.Domain.Entities;
+using Api.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
-namespace Data.Implementations
+namespace Api.Data.Implementations
 {
-    public class CepImplementation : BaseRepository<UfEntity>, ICepRepository
+    public class CepImplementation : BaseRepository<CepEntity>, ICepRepository
     {
-        private DbSet<UfEntity> _dataset;
+        private DbSet<CepEntity> _dataset;
+
         public CepImplementation(MyContext context) : base(context)
         {
-            _dataset = context.Set<UfEntity>();
-
+            _dataset = context.Set<CepEntity>();
         }
 
-        public async Task<CepEntity> InsertAsync(CepEntity item)
+        public async Task<CepEntity> SelectAsync(string cep)
         {
-            return await _dataset.Include(c => c.Municipios)
-                        .ThenInclude(m => m.Uf)
-                        .FirstOrDefault(u => u.Cep.Equals(Cep));
-        }
-
-        public Task<CepEntity> SelectAsync(string cep)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<CepEntity> UpdateAsync(CepEntity item)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<CepEntity> IRepository<CepEntity>.SelectAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<CepEntity>> IRepository<CepEntity>.SelectAsync()
-        {
-            throw new NotImplementedException();
+            return await _dataset.Include(c => c.Municipio)
+                                 .ThenInclude(m => m.Uf)
+                                 .SingleOrDefaultAsync(u => u.Cep.Equals(cep));
         }
     }
 }
-
-
-      

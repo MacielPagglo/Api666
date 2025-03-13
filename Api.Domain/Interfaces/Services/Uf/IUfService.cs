@@ -1,16 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Domain.Dtos.Uf;
+using Api.Domain.Dtos.Uf;
 
-namespace Domain.Interfaces.Services.Uf
+namespace Api.Domain.Interfaces.Services.Uf
 {
     public interface IUfService
     {
         Task<UfDto> Get(Guid id);
-
-        Task<IEnumerable<UfDto>> GetAll();  
-
+        Task<IEnumerable<UfDto>> GetAll();
     }
 }

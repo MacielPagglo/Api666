@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Api.Domain.Entities;
 using Api.Domain.Interfaces;
-using Domain.Entities;
 
-namespace Domain.Repository
+namespace Api.Domain.Repository
 {
     public interface IUfRepository : IRepository<UfEntity>
     {

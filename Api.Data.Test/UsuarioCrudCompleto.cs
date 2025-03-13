@@ -19,7 +19,7 @@ namespace Api.Data.Test
         }
 
 
-        [Fact(DisplayName = "CRUD de Municipio")]
+        [Fact(DisplayName = "CRUD de Usuário")]
         [Trait("CRUD", "UserEntity")]
         public async Task E_Possivel_Realizar_CRUD_Usuario()
         {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Domain.Dtos.Municipio;
+using System;
+using Api.Domain.Dtos.Municipio;
 
-namespace Domain.Dtos.Cep
+namespace Api.Domain.Dtos.Cep
 {
     public class CepDto
     {
@@ -11,11 +9,7 @@ namespace Domain.Dtos.Cep
         public string Cep { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
-
         public Guid MunicipioId { get; set; }
-
         public MunicipioDtoCompleto Municipio { get; set; }
-
-
     }
 }
